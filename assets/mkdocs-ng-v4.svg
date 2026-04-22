@@ -1,0 +1,32 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+
+<!-- Background -->
+<rect width="500" height="500" fill="#0D1E3C"/>
+
+<!-- Document body — fills most of canvas -->
+<rect x="48" y="30" width="310" height="390" rx="18" fill="#EEF2F8"/>
+
+<!-- Page fold -->
+<polygon points="302,30 358,86 302,86" fill="#0D1E3C" opacity="0.12"/>
+<polygon points="302,30 358,86 302,86" fill="#BFC9DA" opacity="0.6"/>
+
+<!-- mkdocs text ON document -->
+<text x="203" y="130" text-anchor="middle"
+  font-family="system-ui,-apple-system,sans-serif"
+  font-size="48" font-weight="800" fill="#1A2E4A" letter-spacing="1">mkdocs</text>
+
+<!-- Divider -->
+<rect x="75" y="152" width="258" height="3" rx="1.5" fill="#C5D0DE" opacity="0.8"/>
+
+<!-- Content lines -->
+<rect x="80" y="182" width="208" height="13" rx="6.5" fill="#C5D0DE" opacity="0.7"/>
+<rect x="80" y="210" width="165" height="13" rx="6.5" fill="#C5D0DE" opacity="0.5"/>
+<rect x="80" y="238" width="190" height="13" rx="6.5" fill="#C5D0DE" opacity="0.6"/>
+
+<!-- NG badge — large, overlapping bottom-right -->
+<rect x="178" y="318" width="278" height="148" rx="20" fill="#00C896"/>
+<text x="317" y="418" text-anchor="middle"
+  font-family="system-ui,-apple-system,sans-serif"
+  font-size="100" font-weight="800" fill="#FFFFFF" letter-spacing="-3">ng</text>
+
+</svg>
