@@ -51,12 +51,12 @@ jobs:
           repository: ${{ github.repository }}
           ref: ${{ github.sha }}
           path: project-repo
-      - name: Checkout cpp-linter/.github (org) repo
+      - name: Checkout mkdocs-ng/.github (org) repo
         # needed for committed.toml config (org-specific)
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
-          repository: cpp-linter/.github
+          repository: mkdocs-ng/.github
           path: org-repo
       - name: Get PR title
         id: get-title

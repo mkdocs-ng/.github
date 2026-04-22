@@ -21,6 +21,6 @@ jobs:
       - uses: release-drafter/release-drafter@139054aeaa9adc52ab36ddf67437541f039b88e2 # v7.1.1
         with:
           commitish: '${{ inputs.commitish }}'
-          config-name: github:cpp-linter/.github:/.github/release-drafter.yml
+          config-name: github:mkdocs-ng/.github:/.github/release-drafter.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
