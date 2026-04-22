@@ -1,0 +1,89 @@
+name: Run pre-commit
+
+on:
+  workflow_call:
+    inputs:
+      commands:
+        required: false
+        type: string
+        default: ""
+        description: run additional commands for preparing the environment
+
+jobs:
+  run-pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        id: python-setup
+        with:
+          python-version: "3.x"
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: latest
+      - name: Run commands
+        if: inputs.commands
+        run: ${INPUTS_COMMANDS}
+        env:
+          INPUTS_COMMANDS: ${{ inputs.commands }}
+      - name: Cache pre-commit environments
+        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
+        with:
+          path: "~/.cache/pre-commit"
+          key: pre-commit-${{ steps.python-setup.outputs.python-version }}-${{ hashFiles('.pre-commit-config.yaml') }}
+      - run: pipx run pre-commit run --show-diff-on-failure --color=always --all-files
+
+  check-pr-title:
+    name: Check PR title
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    # The calling workflow must grant these permissions.
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout ${{ github.repository }} repo
+        # needed for cspell.config.yml (project-specific)
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+          repository: ${{ github.repository }}
+          ref: ${{ github.sha }}
+          path: project-repo
+      - name: Checkout cpp-linter/.github (org) repo
+        # needed for committed.toml config (org-specific)
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+          repository: cpp-linter/.github
+          path: org-repo
+      - name: Get PR title
+        id: get-title
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |-
+          pr_title=$(gh pr view "${PR_NUMBER}" --repo "${GH_REPO}" --json "title" -q ".title")
+          echo "title=${pr_title}" >> "${GITHUB_OUTPUT}"
+      - run: rustup update --no-self-update
+      - name: Install cargo-binstall
+        uses: cargo-bins/cargo-binstall@0b24824336e2b3800b0f89d9e08b2c08bfa3dcdd # v1.17.9
+      - name: Install committed
+        run: cargo binstall -y committed
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: conventional-commit
+        env:
+          PR_TITLE: "${{ steps.get-title.outputs.title }}"
+          COMMITTED_CONFIG: ${{ github.workspace }}/org-repo/.github/committed.toml
+        run: echo "${PR_TITLE}" | committed --config "${COMMITTED_CONFIG}" --commit-file -
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: latest
+      - name: spell check
+        working-directory: project-repo
+        env:
+          PR_TITLE: "${{ steps.get-title.outputs.title }}"
+        run: echo "${PR_TITLE}" | npx cspell-cli lint stdin
