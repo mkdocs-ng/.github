@@ -74,16 +74,15 @@ template: |
 
 autolabeler:
   - label: 'documentation'
-    files:
-      - '*.md'
-      - '*.rst'
     branch:
       - '/docs{0,1}\/.+/'
   - label: 'bug'
     branch:
       - '/fix\/.+/'
+      - '/bugfix\/.+/'
     title:
       - '/fix/i'
   - label: 'enhancement'
     branch:
       - '/feature\/.+/'
+      - '/feat\/.+/'
