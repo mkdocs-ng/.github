@@ -1,0 +1,14 @@
+.github/committed.toml
+  h_20d8fd5fdd9091 1-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6935bb20af5770ab87450fd6b90ea5e4d4494888",
+  "prompts": {},
+  "humans": {
+    "h_20d8fd5fdd9091": {
+      "author": "Xianpeng Shen <xianpeng.shen@gmail.com>"
+    }
+  }
+}
