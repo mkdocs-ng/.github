@@ -1,0 +1,29 @@
+.github/workflows/codeql.yml
+  s_f518a1c9328c7b::t_027fe9e144160e 46
+.github/workflows/coverage.yml
+  s_f518a1c9328c7b::t_31e43ca34392ec 11,22,40
+.github/workflows/mkdocs.yml
+  s_f518a1c9328c7b::t_76dfc404be4ea7 10,13,19
+.github/workflows/pre-commit.yml
+  s_f518a1c9328c7b::t_581841b3a1b320 16,19,23,32,48,56,82
+.github/workflows/stale.yml
+  s_f518a1c9328c7b::t_0c678a97d3ec78 15
+.github/workflows/ublish.yml
+  s_f518a1c9328c7b::t_a86750ee5bd879 16,22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "141bc507c95084054c77717f77eb944b20cf1cfd",
+  "prompts": {},
+  "sessions": {
+    "s_f518a1c9328c7b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c2b090ca-b947-4998-975f-5d845a56ad69",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Xianpeng Shen <xianpeng.shen@gmail.com>"
+    }
+  }
+}
