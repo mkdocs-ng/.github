@@ -1,3 +1,10 @@
-# Org Metadata
+# mkdocs-ng/.github
 
-Global configurations and assets for the mkdocs-ng organization on GitHub.
+Organization-wide files for [MkDocs NG](https://github.com/mkdocs-ng):
+
+- `profile/README.md`: the organization's GitHub front page.
+- `assets/`: the MkDocs NG logo (`mkdocs-ng-logo.svg`, `mkdocs-ng-logo-dark.svg`
+  for dark backgrounds, `favicon.svg` for small sizes). Earlier logo drafts are
+  in `assets/archive/`.
+- `.github/workflows/`: reusable workflows shared by the organization's
+  repositories, such as `pr-labeler.yml`.
