@@ -16,8 +16,8 @@
 </p>
 
 <p align="center">
-  <a href="https://mkdocs-ng.github.io/mkdocs/">Documentation</a> ·
-  <a href="https://mkdocs-ng.github.io/mkdocs/user-guide/migrating/">Switching from MkDocs</a> ·
+  <a href="https://mkdocs-ng.org/">Documentation</a> ·
+  <a href="https://mkdocs-ng.org/user-guide/migrating/">Switching from MkDocs</a> ·
   <a href="https://github.com/orgs/mkdocs-ng/discussions">Discussions</a>
 </p>
 
@@ -52,4 +52,4 @@ pip install mkdocs-ng
 Questions go to [Discussions](https://github.com/orgs/mkdocs-ng/discussions),
 bugs to the issue tracker of the project they affect. Fixes, documentation and
 plugin compatibility reports are all welcome; see the
-[contributing guide](https://mkdocs-ng.github.io/mkdocs/about/contributing/).
+[contributing guide](https://mkdocs-ng.org/about/contributing/).
