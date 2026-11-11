@@ -20,8 +20,11 @@ Please do not open a public issue, pull request or discussion for a security
 problem.
 
 Report it privately on GitHub instead: open the **Security** tab of the
-affected repository and click **Report a vulnerability**. Include the package
-and version, the steps to reproduce it, and what an attacker could do with it.
+affected repository and click **Report a vulnerability**, for example
+<https://github.com/mkdocs-ng/mkdocs/security/advisories/new> for
+`mkdocs-ng`. Include the package and version, the steps to reproduce it, and
+what an attacker could do with it. GitHub explains how private reporting works
+in [Privately reporting a security vulnerability](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability).
 
 ## What to expect
 
